@@ -2,16 +2,27 @@ package br.com.isaque.gestao_vagas.modules.candidate;
 
 import java.util.UUID;
 
+import org.hibernate.validator.constraints.Length;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
-@Data 
+
+@Data
 public class CandidateEntity {
-    
+
     private UUID id;
     private String name;
-    private String  username;
-    private String  email;
-    private String  password;
-    private String  description;
-    private String  curriculum;
+
+    @Pattern(regexp = "^(?!\\s*$).+", message = "Username não pode ter espaço")
+    private String username;
+
+    @Email(message = "O campo deve connter um e-mail válido!")
+    private String email;
+
+    @Length(min = 10, max = 100)
+    private String password;
+    private String description;
+    private String curriculum;
 
 }
