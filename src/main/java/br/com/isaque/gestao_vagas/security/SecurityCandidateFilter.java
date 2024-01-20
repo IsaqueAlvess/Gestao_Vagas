@@ -1,8 +1,6 @@
 package br.com.isaque.gestao_vagas.security;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -12,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import br.com.isaque.gestao_vagas.exceptions.providers.JWTCandidateProvider;
-import br.com.isaque.gestao_vagas.exceptions.providers.JWTProvider;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
