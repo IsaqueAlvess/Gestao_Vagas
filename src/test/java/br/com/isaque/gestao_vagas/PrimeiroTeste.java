@@ -11,14 +11,12 @@ public class PrimeiroTeste {
     public void deve_Ser_Possivel_Calcular_Dois_Numeros(){
         var result = calculate(2, 3);
         assertEquals(result, 5);
-
     }
 
     @Test
     public void validar_valor_incorreto(){
         var result = calculate(2, 3);
         assertNotEquals(result, 4);
-        ass
     }
 
 
