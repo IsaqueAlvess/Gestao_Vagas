@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.isaque.gestao_vagas.exceptions.JobNotFoundException;
 import br.com.isaque.gestao_vagas.exceptions.UserNotFoundException;
 import br.com.isaque.gestao_vagas.modules.candidate.CandidateRepository;
+import br.com.isaque.gestao_vagas.modules.candidate.repository.ApplyJobRepository;
 import br.com.isaque.gestao_vagas.modules.company.repositories.JobRepository;
 
 @Service
@@ -19,6 +20,9 @@ public class ApplyJobCandidateUseCase {
     @Autowired
     private JobRepository jobRepository;
 
+    @Autowired
+    private ApplyJobRepository applyJobRepository;
+    
     //ID da Vaga e ID do Candidato
     public void execute(UUID idCandidate, UUID idJob){
         //Validar se o candidato existe
@@ -33,6 +37,8 @@ public class ApplyJobCandidateUseCase {
                 throw new JobNotFoundException();
             });
         //Candidato se inscrver na vaga
+        
+        
 
 
     }
