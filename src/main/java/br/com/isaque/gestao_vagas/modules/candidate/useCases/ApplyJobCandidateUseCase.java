@@ -25,7 +25,7 @@ public class ApplyJobCandidateUseCase {
     private ApplyJobRepository applyJobRepository;
     
     //ID da Vaga e ID do Candidato
-    public void execute(UUID idCandidate, UUID idJob){
+    public ApplyJobEntity execute(UUID idCandidate, UUID idJob){
         //Validar se o candidato existe
         this.candidateRepository.findById(idCandidate)
         .orElseThrow(() -> {
@@ -38,10 +38,11 @@ public class ApplyJobCandidateUseCase {
                 throw new JobNotFoundException();
             });
         //Candidato se inscrver na vaga
-        var applyJob = ApplyJobEntity.builder().candidateId(idCandidate)
-        
+        var applyJob = ApplyJobEntity.builder().candidateId(idCandidate).jobId(idJob).build();
 
-        applyJobRepository.save(applyJob);
+        applyJob = applyJobRepository.save(applyJob);
+        
+        return applyJob;
         
 
 
