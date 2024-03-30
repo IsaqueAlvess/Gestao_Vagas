@@ -6,10 +6,12 @@ COPY . .
 
 RUN apt-get install maven -y
 RUN mvn clean install
+RUN ls /target
 
 FROM openjdk:17-jdk-slim
 EXPOSE 8080
 
-COPY --from=build /target/gestao_vagas-0.0.1.jar app.jar
+COPY /root/.m2/repository/br/com/isaque/gestao_vagas/0.0.1-SNAPSHOT/gestao_vagas-0.0.1-SNAPSHOT.jar app.jar
+
 
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
